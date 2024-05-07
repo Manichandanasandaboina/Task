@@ -26,6 +26,7 @@ plt.show()
 ## crop
 
 Install following packages
+
 ```csv, PIL```
 
 ```
@@ -89,6 +90,7 @@ for i in num:
 ## web
 
 Install following packages
+
 ```opencv```
 
 
