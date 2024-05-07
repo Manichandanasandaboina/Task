@@ -24,6 +24,10 @@ plt.show()
   ```
 
 ## crop
+
+Install following packages
+```csv, PIL```
+
 ```
 import os
 import csv
@@ -83,6 +87,11 @@ for i in num:
 ```
 
 ## web
+
+Install following packages
+```opencv```
+
+
 ```
 
 # import the opencv library 
