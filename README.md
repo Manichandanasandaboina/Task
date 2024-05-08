@@ -1,125 +1,51 @@
 ## Histogram
 
-Install following packages
+# Histogram Plotting using OpenCV and Matplotlib
 
-```numpy, opencv, matlotlib```
+This code reads an image, calculates histograms for each color channel (blue, green, and red), and plots them using OpenCV and Matplotlib.
 
-2.code
+## Installation
 
-```bash
+1. Install NumPy, OpenCV, and Matplotlib using pip:
 
-import numpy as np
+   pip install numpy opencv-python matplotlib
+
+   
+## Usage
+
+1. Run the script `plot_histogram.py`.
+2. Provide the path to the input image as an argument.
+3. The script will generate a histogram plot for each color channel and display it.
+
+## Code Explanation
+
+- `cv.imread()`: Reads the input image.
+- `cv.calcHist()`: Calculates histograms for each color channel.
+- `plt.plot()`: Plots the histograms using Matplotlib.
+
+## Example
+
+```python
 import cv2 as cv
 from matplotlib import pyplot as plt
- 
-img = cv.imread('/home/manichandana-sandhaboina/Desktop/experIments/flower.jpg')
-cv.imwrite('/home/manichandana-sandhaboina/Desktop/histo.jpg',img)
-assert img is not None, "file could not be read, check with os.path.exists()"
-color = ('b','g','r')
-for i,col in enumerate(color):
- histr = cv.calcHist([img],[i],None,[256],[0,256])
- plt.plot(histr,color = col)
- plt.xlim([0,256])
+
+# Read the image
+img = cv.imread('flower.jpg')
+
+# Calculate histograms and plot them
+# (Code snippet from the provided code)
 plt.show()
-  ```
 
-## crop
-
-Install following packages
-
-```csv, PIL```
-
-```
-import os
-import csv
-from PIL import Image,ImageDraw
-csv_file = "/home/manichandana-sandhaboina/Downloads/7622202030987_bounding_box.csv"
-image_dir = "/home/manichandana-sandhaboina/Downloads/7622202030987"
-output_dir = "/home/manichandana-sandhaboina/Downloads/7622202030987_with_boxes"
-os.makedirs(output_dir, exist_ok=True)
+## Input
 
 
-def draw_boxes(image, boxes):
-    draw = ImageDraw.Draw(image)
-    for box in boxes:
-        left = int(box['left'])
-        top = int(box['top'])
-        right = int(box['right'])
-        bottom = int(box['bottom'])
-        draw.rectangle([left, top, right, bottom], outline="red")
-    return image
-def crop_image(image, boxes):
-    cropped_images = []
-    for box in boxes:
-        left = int(box['left'])
-        top = int(box['top'])
-        right = int(box['right'])
-        bottom = int(box['bottom'])
-        cropped_img = image.crop((left, top, right, bottom))
-        cropped_images.append(cropped_img)
-    return cropped_images
 
 
-with open(csv_file, 'r') as file:
-    csv_reader = csv.DictReader(file)
-    for row in csv_reader:
-        image_name = row['filename']
-        image_path = os.path.join(image_dir, image_name)
-        output_path = os.path.join(output_dir, image_name)
-        image = Image.open(image_path)
-        boxes = [{'left': row['xmin'], 'top': row['ymin'], 'right': row['xmax'], 'bottom': row['ymax']}]
-        cropped_images = crop_image(image, boxes)
-        for i, cropped_img in enumerate(cropped_images):
-            cropped_img.save(os.path.join(output_dir, f"{i}_{image_name}"))  
-        full_image_with_boxes = draw_boxes(image, boxes)
-        full_image_with_boxes.save(os.path.join(output_dir, f"full_{image_name}"))
+ 
 
 
-```
-
-## chandana
-```
-num = list(range(10))
-previousNum = 0
-for i in num:
-        sum = previousNum + i
-        print('Current Number '+ str(i) + 'Previous Number ' + str(previousNum) + 'is ' + str(sum))
-        previousNum=i
-```
-
-## web
-
-Install following packages
-
-```opencv```
 
 
-```
 
-# import the opencv library 
-import cv2 
-  
-  
-# define a video capture object 
-vid = cv2.VideoCapture(0) 
-  
-while(True): 
-      
-    # Capture the video frame 
-    # by frame 
-    ret, frame = vid.read() 
-  
-    # Display the resulting frame 
-    cv2.imshow('frame', frame) 
-      
-    # the 'q' button is set as the 
-    # quitting button you may use any 
-    # desired button of your choice 
-    if cv2.waitKey(1) & 0xFF == ord('q'): 
-        break
-  
-# After the loop release the cap object 
-vid.release() 
-# Destroy all the windows 
-cv2.destroyAllWindows()
- ```
+
+
