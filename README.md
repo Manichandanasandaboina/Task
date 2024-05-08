@@ -130,7 +130,10 @@ This part calculates the histogram of the image for each color channel (blue, gr
 
 ![flower](https://github.com/Manichandanasandaboina/Task/assets/169050542/c2f9de9c-2ca1-4cee-ba97-6ba41a99947e)
 
+
 ## Output
+
+![Figure_1](https://github.com/Manichandanasandaboina/Task/assets/169050542/b5c7ba78-3e0a-4c02-a341-3d45894ad923)
 
 
 
