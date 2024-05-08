@@ -241,7 +241,7 @@ Bounding boxes are rectangular regions that are used to locate objects within an
 
 5.Semantic Segmentation
 
-## example for Bounding Boxes
+## example  program for Bounding Boxes
 
 1.It imports necessary libraries/modules: os, csv, and specific modules from PIL library (Image and ImageDraw).
 
