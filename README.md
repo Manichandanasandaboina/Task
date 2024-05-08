@@ -58,3 +58,73 @@ cv2.destroyAllWindows() closes all OpenCV windows.
 
 
 
+
+
+
+
+
+
+## Histogram
+
+## Histogram Plotting using OpenCV and Matplotlib
+
+This code reads an image, calculates histograms for each color channel (blue, green, and red), and plots them using OpenCV and Matplotlib.
+
+Installation:
+
+1. Install NumPy, OpenCV, and Matplotlib using pip:
+
+   pip install numpy opencv-python matplotlib
+
+Usage :
+
+1. Run the script plot_histogram.py.
+2. Provide the path to the input image as an argument.
+3. The script will generate a histogram plot for each color channel and display it.
+   
+   
+Code Explanation:
+
+import numpy as np
+
+import cv2 as cv
+
+from matplotlib import pyplot as plt
+
+- cv.imread(): Reads the input image.
+  
+- cv.calcHist(): Calculates histograms for each color channel.
+  
+- plt.plot(): Plots the histograms using Matplotlib.
+
+Read the image:
+
+img = cv.imread('/home/manichandana-sandhaboina/Desktop/experIments/flower.jpg')
+
+This line reads an image file named 'flower.jpg' from the specified path.
+
+Write the image:
+
+cv.imwrite('/home/manichandana-sandhaboina/Desktop/histo.jpg', img)
+
+This line writes the image img to a new file named 'histo.jpg' in the specified path.
+
+Check if the image is read successfully:
+
+assert img is not None, "file could not be read, check with os.path.exists()"
+
+This line checks if the image is successfully read. If the image is not read (i.e., img is None), it raises an assertion error with the message "file could not be read, check with os.path.exists()".
+
+Calculate and plot histogram:
+
+color = ('b', 'g', 'r')
+for i, col in enumerate(color):
+    histr = cv.calcHist([img], [i], None, [256], [0, 256])
+    plt.plot(histr, color=col)
+    plt.xlim([0, 256])
+plt.show()
+
+This part calculates the histogram of the image for each color channel (blue, green, and red) separately using cv.calcHist() function. Then it plots the histograms using matplotlib.pyplot.plot() function. Finally, it sets the x-axis limit from 0 to 256 and displays the plot using matplotlib.pyplot.show() function.
+
+## Input 
+
