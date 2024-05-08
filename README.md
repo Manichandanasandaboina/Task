@@ -323,6 +323,9 @@ with open(csv_file, 'r') as file:
 ## Output2
 
 
+![0_7622202030987_f306535d741c9148dc458acbbc887243_L_493](https://github.com/Manichandanasandaboina/Task/assets/169050542/a0ed5d67-28a3-4b87-9cfe-a47728fa60e4)
+
+
 
 
 
