@@ -138,7 +138,181 @@ This part calculates the histogram of the image for each color channel (blue, gr
 
 
 
+
+
 ## Iteration
+
+
+## Exmple program for first 10 numbers:
+
+num = list(range(10))
+
+This line creates a list called num containing numbers from 0 to 9 using the range() function and then converting it into a list.
+
+previousNum = 0
+
+
+This initializes a variable called previousNum to 0. This variable will be used to keep track of the previous number in each iteration of the loop.
+
+for i in num:
+
+This is a loop that iterates through each element in the list num.
+
+sum = previousNum + i
+
+This line calculates the sum of the current number (i) and the previous number (previousNum) and assigns it to a variable named sum.
+
+
+print('Current Number ' + str(i) + 'Previous Number ' + str(previousNum) + 'is ' + str(sum))
+
+
+This line prints the current number (i), the previous number (previousNum), and their sum (sum) in a formatted string.
+
+
+previousNum = i
+
+
+This line updates the previousNum variable to the current number (i) for the next iteration of the loop.
+
+
+So, when you run this code, it will output the current number, the previous number, and their sum for each number in the num list, effectively showing the cumulative sum of numbers from 0 to 9.
+
+
+
+## Output 
+
+Current Number 0Previous Number 0is 0
+
+Current Number 1Previous Number 0is 1
+
+Current Number 2Previous Number 1is 3
+
+Current Number 3Previous Number 2is 5
+
+Current Number 4Previous Number 3is 7
+
+Current Number 5Previous Number 4is 9
+
+Current Number 6Previous Number 5is 11
+
+Current Number 7Previous Number 6is 13
+
+Current Number 8Previous Number 7is 15
+
+Current Number 9Previous Number 8is 17
+
+
+
+
+## Bounding Boxes
+
+Bounding boxes are rectangular regions that are used to locate objects within an image. They are commonly used in computer vision tasks, such as object detection, object localization, and image segmentation.
+
+
+## uses of Bounding boxes
+
+1.Object Detection
+
+2.Object Localization
+
+3.Object Tracking
+
+4.Region of Interest (ROI) Selection
+
+5.Semantic Segmentation
+
+## example for Bounding Boxes
+
+1.It imports necessary libraries/modules: os, csv, and specific modules from PIL library (Image and ImageDraw).
+
+import os
+
+import csv
+
+from PIL import Image,ImageDraw
+
+2.Defines paths:
+
+csv_file: Path to the CSV file containing bounding box coordinates (filename, xmin, ymin, xmax, ymax).
+
+image_dir: Directory containing the images.
+
+output_dir: Directory where the output images with bounding boxes will be saved.
+    
+csv_file = "/home/manichandana-sandhaboina/Downloads/7622202030987_bounding_box.csv"
+image_dir = "/home/manichandana-sandhaboina/Downloads/7622202030987"
+output_dir = "/home/manichandana-sandhaboina/Downloads/7622202030987_with_boxes"
+os.makedirs(output_dir, exist_ok=True)
+
+
+3.Defines two functions:
+
+
+draw_boxes(image, boxes): Draws bounding boxes on the given image using ImageDraw.Draw.rectangle() function. The boxes parameter is a list of dictionaries containing bounding box coordinates.
+def draw_boxes(image, boxes):
+
+
+    draw = ImageDraw.Draw(image)
+    for box in boxes:
+        left = int(box['left'])
+        top = int(box['top'])
+        right = int(box['right'])
+        bottom = int(box['bottom'])
+        draw.rectangle([left, top, right, bottom], outline="red")
+    return image
+
+    
+crop_image(image, boxes): Crops the given image based on the bounding box coordinates provided in the boxes parameter. Returns a list of cropped images.
+    
+def crop_image(image, boxes):
+    cropped_images = []
+    for box in boxes:
+        left = int(box['left'])
+        top = int(box['top'])
+        right = int(box['right'])
+        bottom = int(box['bottom'])
+        cropped_img = image.crop((left, top, right, bottom))
+        cropped_images.append(cropped_img)
+    return cropped_images
+    
+    
+4.Creates the output directory if it doesn't exist already.
+
+
+with open(csv_file, 'r') as file:
+
+5.Reads the CSV file using csv.DictReader.
+
+
+    csv_reader = csv.DictReader(file)
+
+6.Iterates through each row in the CSV file:
+
+    
+    for row in csv_reader:
+        image_name = row['filename']
+        image_path = os.path.join(image_dir, image_name)
+        output_path = os.path.join(output_dir, image_name)
+        image = Image.open(image_path)
+        boxes = [{'left': row['xmin'], 'top': row['ymin'], 'right': row['xmax'], 'bottom': row['ymax']}]
+        cropped_images = crop_image(image, boxes)
+        for i, cropped_img in enumerate(cropped_images):
+            cropped_img.save(os.path.join(output_dir, f"{i}_{image_name}"))  
+        full_image_with_boxes = draw_boxes(image, boxes)
+        full_image_with_boxes.save(os.path.join(output_dir, f"full_{image_name}"))
+
+        
+7. The draw_boxes() function outlines each bounding box in red on the original image, while the crop_image() function crops the image according to the bounding box coordinates, resulting in individual images containing the detected objects.
+
+
+## Input
+
+
+
+
+
+
+
 
 
 
