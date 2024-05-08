@@ -39,7 +39,10 @@ plt.show()
 ## Input
 
 
+![histo](https://github.com/Manichandanasandaboina/Task/assets/169050542/27d17d45-1587-4285-9317-782e10fa0623)
 
+## Ouput
+ 
 
  
 
