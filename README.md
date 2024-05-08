@@ -66,6 +66,22 @@ cv2.destroyAllWindows() closes all OpenCV windows.
 
 ## Histogram
 
+A histogram is a graph used to represent the frequency distribution of a few data points of one variable
+
+
+## Use of Histogram
+
+The data should be numerical.
+
+A histogram is used to check the shape of the data distribution. 
+
+Used to check whether the process changes from one period to another.
+
+Used to determine whether the output is different when it involves two or more processes.
+
+Used to analyse whether the given process meets the customer requirements.
+
+
 ## Histogram Plotting using OpenCV and Matplotlib
 
 This code reads an image, calculates histograms for each color channel (blue, green, and red), and plots them using OpenCV and Matplotlib.
