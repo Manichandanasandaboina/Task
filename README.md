@@ -307,6 +307,9 @@ with open(csv_file, 'r') as file:
 
 ## Input
 
+![7622202030987_f306535d741c9148dc458acbbc887243_L_487](https://github.com/Manichandanasandaboina/Task/assets/169050542/529217b4-7e30-4913-b5aa-e1a00faeb7af)
+
+
 
 
 
