@@ -137,3 +137,11 @@ This part calculates the histogram of the image for each color channel (blue, gr
 
 
 
+
+## Iteration
+
+
+
+
+
+
