@@ -163,7 +163,7 @@ This part calculates the histogram of the image for each color channel (blue, gr
 ## Iteration
 
 
-## Exmple program for first 10 numbers:
+## Example program for first 10 numbers:
 
 num = list(range(10))
 
