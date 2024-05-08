@@ -42,6 +42,11 @@ plt.show()
 ![histo](https://github.com/Manichandanasandaboina/Task/assets/169050542/27d17d45-1587-4285-9317-782e10fa0623)
 
 ## Ouput
+
+file:///home/manichandana-sandhaboina/Figure_1.png![image](https://github.com/Manichandanasandaboina/Task/assets/169050542/787f6ec2-99eb-417e-92e4-4df0fb1957aa)
+
+
+
  
 
  
