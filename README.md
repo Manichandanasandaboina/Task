@@ -8,16 +8,19 @@ A webcam is a video camera that is connected to a computer or other device, typi
   
    
 import cv2 
+
   
    
 2.cv2.VideoCapture(0):It initializes a video capture object. The argument 0 specifies that the default camera should be used for capturing video. If you have multiple cameras connected,you can specify the index of the camera you want to use
 
 
 video = cv2.VideoCapture(0) 
+
    
  
 if (video.isOpened() == False):  
     print("Error reading video file") 
+    
     
 3. it checks  the video capture object is successfully initialized. If it fails to initialize, it prints an error.
  
