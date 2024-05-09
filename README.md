@@ -6,67 +6,74 @@ A webcam is a video camera that is connected to a computer or other device, typi
 
 1.First we have to import opencv library
   
-   
-import cv2 
-
-  
-   
-2.cv2.VideoCapture(0):It initializes a video capture object. The argument 0 specifies that the default camera should be used for capturing video. If you have multiple cameras connected,you can specify the index of the camera you want to use
+   import cv2
 
 
-video = cv2.VideoCapture(0) 
-
-   
- 
-if (video.isOpened() == False): 
+2.Initializing Video Capture:
 
 
-    print("Error reading video file") 
-    
-    
-3. it checks  the video capture object is successfully initialized. If it fails to initialize, it prints an error.
- 
-frame_width = int(video.get(3)) 
+video = cv2.VideoCapture(0)
 
 
-frame_height = int(video.get(4)) 
+This creates a VideoCapture object named video that captures video from the default camera (index 0). You can change this index to specify a different camera if you have multiple cameras connected.
 
-   
-size = (frame_width, frame_height) 
 
-4. Defining the size ( width & height) of the vedio frame
-   
- 
-result = cv2.VideoWriter('M.avi',  
-                         cv2.VideoWriter_fourcc(*'MJPG'), 
-                         10, size) 
+3.Checking if Camera is Opened:
 
-5. The output is saved in filename.avi
 
-    
-while(True): 
-    ret, frame = video.read() 
-  
-    if ret == True:  
-  
-        result.write(frame) 
-  
-        cv2.imshow('Frame', frame) 
-  
-        if cv2.waitKey(1) & 0xFF == ord('s'): 
+
+if (video.isOpened() == False):
+    print("Error reading video file")
+
+This checks if the camera is successfully opened. If it's not, it prints an error message.
+
+4.Setting Resolutions:
+
+frame_width = int(video.get(3))
+frame_height = int(video.get(4))
+
+These lines retrieve the width and height of the frames captured by the camera.
+
+5.Setting Video Writer:
+
+result = cv2.VideoWriter('M.avi', cv2.VideoWriter_fourcc(*'MJPG'), 10, size)
+
+
+Here, a VideoWriter object named result is created. It specifies the output filename ('M.avi'), the FourCC code for the codec (MJPG), the frames per second (10), and the frame size.
+
+
+6.Capturing and Writing Frames:
+
+while(True):
+    ret, frame = video.read()
+    if ret == True:
+        result.write(frame)
+        cv2.imshow('Frame', frame)
+        if cv2.waitKey(1) & 0xFF == ord('s'):
             break
-  
-    # Break the loop 
-    else: 
+    else:
         break
-6.Now, here in the while loop it captures each  frames from the video stream until a break condition is met.
 
-video.release() 
-result.release() 
-  
-cv2.destroyAllWindows() 
-   
-print("The video was successfully saved") 
+This loop captures frames from the camera, writes them to the video file, and displays them. Pressing the 's' key stops the process.
+
+
+7.Releasing Resources:
+
+video.release()
+result.release()
+cv2.destroyAllWindows()
+
+
+Finally, after the loop exits, the video capture and video write objects are released, and all OpenCV windows are closed.
+
+
+8.Printing Success Message:
+
+print("The video was successfully saved")
+
+
+This line prints a success message after the video is saved.
+
 
 
 ## Output
