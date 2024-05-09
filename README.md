@@ -66,8 +66,6 @@ cv2.destroyAllWindows() closes all OpenCV windows.
 
 
 
-
-
 ## Histogram
 
 A histogram is a graph used to represent the frequency distribution of a few data points of one variable
