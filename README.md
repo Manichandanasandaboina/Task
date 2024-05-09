@@ -59,7 +59,7 @@ cv2.destroyAllWindows() closes all OpenCV windows.
 ## Output
 
 
-https://github.com/Manichandanasandaboina/Task/assets/169050542/5887c072-bebe-4536-a1fa-ebdb52d94e40
+
 
 
 
