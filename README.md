@@ -5,14 +5,15 @@ A webcam is a video camera that is connected to a computer or other device, typi
 ## Example program
 
 1.First we have to import opencv library
+
   
-   import cv2
+      import cv2
 
 
 2.Initializing Video Capture:
 
 
-video = cv2.VideoCapture(0)
+      video = cv2.VideoCapture(0)
 
 
 This creates a VideoCapture object named video that captures video from the default camera (index 0). You can change this index to specify a different camera if you have multiple cameras connected.
@@ -21,22 +22,23 @@ This creates a VideoCapture object named video that captures video from the defa
 3.Checking if Camera is Opened:
 
 
+        if (video.isOpened() == False):
 
-if (video.isOpened() == False):
-    print("Error reading video file")
+
+           print("Error reading video file")
 
 This checks if the camera is successfully opened. If it's not, it prints an error message.
 
 4.Setting Resolutions:
 
-frame_width = int(video.get(3))
-frame_height = int(video.get(4))
+         frame_width = int(video.get(3))
+         frame_height = int(video.get(4))
 
 These lines retrieve the width and height of the frames captured by the camera.
 
 5.Setting Video Writer:
 
-result = cv2.VideoWriter('M.avi', cv2.VideoWriter_fourcc(*'MJPG'), 10, size)
+       result = cv2.VideoWriter('M.avi', cv2.VideoWriter_fourcc(*'MJPG'), 10, size)
 
 
 Here, a VideoWriter object named result is created. It specifies the output filename ('M.avi'), the FourCC code for the codec (MJPG), the frames per second (10), and the frame size.
@@ -44,24 +46,27 @@ Here, a VideoWriter object named result is created. It specifies the output file
 
 6.Capturing and Writing Frames:
 
-while(True):
-    ret, frame = video.read()
-    if ret == True:
-        result.write(frame)
-        cv2.imshow('Frame', frame)
-        if cv2.waitKey(1) & 0xFF == ord('s'):
-            break
-    else:
-        break
+
+      while(True):
+          ret, frame = video.read()
+          if ret == True:
+              result.write(frame)
+              cv2.imshow('Frame', frame)
+              if cv2.waitKey(1) & 0xFF == ord('s'):
+                  break
+          else:
+              break
+
+        
 
 This loop captures frames from the camera, writes them to the video file, and displays them. Pressing the 's' key stops the process.
 
 
 7.Releasing Resources:
 
-video.release()
-result.release()
-cv2.destroyAllWindows()
+      video.release()
+      result.release()
+      cv2.destroyAllWindows()
 
 
 Finally, after the loop exits, the video capture and video write objects are released, and all OpenCV windows are closed.
@@ -69,7 +74,7 @@ Finally, after the loop exits, the video capture and video write objects are rel
 
 8.Printing Success Message:
 
-print("The video was successfully saved")
+      print("The video was successfully saved")
 
 
 This line prints a success message after the video is saved.
@@ -135,13 +140,13 @@ from matplotlib import pyplot as plt
 
 Read the image:
 
-img = cv.imread('/home/manichandana-sandhaboina/Desktop/experIments/flower.jpg')
+      img = cv.imread('/home/manichandana-sandhaboina/Desktop/experIments/flower.jpg')
 
 This line reads an image file named 'flower.jpg' from the specified path.
 
 Write the image:
 
-cv.imwrite('/home/manichandana-sandhaboina/Desktop/histo.jpg', img)
+      cv.imwrite('/home/manichandana-sandhaboina/Desktop/histo.jpg', img)
 
 This line writes the image img to a new file named 'histo.jpg' in the specified path.
 
@@ -153,12 +158,12 @@ This line checks if the image is successfully read. If the image is not read (i.
 
 Calculate and plot histogram:
 
-color = ('b', 'g', 'r')
-for i, col in enumerate(color):
-    histr = cv.calcHist([img], [i], None, [256], [0, 256])
-    plt.plot(histr, color=col)
-    plt.xlim([0, 256])
-plt.show()
+      color = ('b', 'g', 'r')
+      for i, col in enumerate(color):
+          histr = cv.calcHist([img], [i], None, [256], [0, 256])
+          plt.plot(histr, color=col)
+          plt.xlim([0, 256])
+      plt.show()
 
 This part calculates the histogram of the image for each color channel (blue, green, and red) separately using cv.calcHist() function. Then it plots the histograms using matplotlib.pyplot.plot() function. Finally, it sets the x-axis limit from 0 to 256 and displays the plot using matplotlib.pyplot.show() function.
 
