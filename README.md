@@ -18,7 +18,8 @@ video = cv2.VideoCapture(0)
 
    
  
-if (video.isOpened() == False):  
+if (video.isOpened() == False): 
+
     print("Error reading video file") 
     
     
