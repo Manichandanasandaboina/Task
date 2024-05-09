@@ -20,13 +20,17 @@ video = cv2.VideoCapture(0)
  
 if (video.isOpened() == False): 
 
+
     print("Error reading video file") 
     
     
 3. it checks  the video capture object is successfully initialized. If it fails to initialize, it prints an error.
  
 frame_width = int(video.get(3)) 
+
+
 frame_height = int(video.get(4)) 
+
    
 size = (frame_width, frame_height) 
 
