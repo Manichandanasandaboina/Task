@@ -126,11 +126,11 @@ Usage :
    
 Code Explanation:
 
-import numpy as np
+     import numpy as np
 
-import cv2 as cv
+     import cv2 as cv
 
-from matplotlib import pyplot as plt
+     from matplotlib import pyplot as plt
 
 - cv.imread(): Reads the input image.
   
@@ -152,7 +152,7 @@ This line writes the image img to a new file named 'histo.jpg' in the specified 
 
 Check if the image is read successfully:
 
-assert img is not None, "file could not be read, check with os.path.exists()"
+     assert img is not None, "file could not be read, check with os.path.exists()"
 
 This line checks if the image is successfully read. If the image is not read (i.e., img is None), it raises an assertion error with the message "file could not be read, check with os.path.exists()".
 
