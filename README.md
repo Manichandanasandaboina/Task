@@ -186,31 +186,31 @@ This part calculates the histogram of the image for each color channel (blue, gr
 
 ## Example program for first 10 numbers:
 
-num = list(range(10))
+     num = list(range(10))
 
 This line creates a list called num containing numbers from 0 to 9 using the range() function and then converting it into a list.
 
-previousNum = 0
+     previousNum = 0
 
 
 This initializes a variable called previousNum to 0. This variable will be used to keep track of the previous number in each iteration of the loop.
 
-for i in num:
+     for i in num:
 
 This is a loop that iterates through each element in the list num.
 
-sum = previousNum + i
+     sum = previousNum + i
 
 This line calculates the sum of the current number (i) and the previous number (previousNum) and assigns it to a variable named sum.
 
 
-print('Current Number ' + str(i) + 'Previous Number ' + str(previousNum) + 'is ' + str(sum))
+     print('Current Number ' + str(i) + 'Previous Number ' + str(previousNum) + 'is ' + str(sum))
 
 
 This line prints the current number (i), the previous number (previousNum), and their sum (sum) in a formatted string.
 
 
-previousNum = i
+     previousNum = i
 
 
 This line updates the previousNum variable to the current number (i) for the next iteration of the loop.
